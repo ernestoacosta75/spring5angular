@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DirectiveComponent implements OnInit {
 
   coursesList: string [] = ['Typescript', 'Javascript', 'Java SE', 'C#', 'PHP'];
+  isEnabled: boolean = true;
 
   constructor() { }
 
