@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CLIENTS } from "@app/models/clients.json";
 import { Client } from '@app/models/client/client.model';
+import { ClientService } from '@app/services/client.service';
 
 @Component({
   selector: 'app-clients',
@@ -11,10 +11,11 @@ export class ClientsComponent implements OnInit {
 
   clients: Client [];
 
-  constructor() { }
+  // tslint:disable-next-line: variable-name
+  constructor( private _clientService: ClientService) { }
 
   ngOnInit() {
-    this.clients = CLIENTS;
+    this.clients = this._clientService.getClients();
   }
 
 }
