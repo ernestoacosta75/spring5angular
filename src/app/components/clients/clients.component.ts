@@ -15,7 +15,12 @@ export class ClientsComponent implements OnInit {
   constructor( private _clientService: ClientService) { }
 
   ngOnInit() {
-    this.clients = this._clientService.getClients();
+    // tslint:disable-next-line: deprecation
+    this._clientService.getClients().subscribe(
+      clients => {
+        this.clients = clients;
+      }
+    );
   }
 
 }
