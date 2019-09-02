@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class ClientService {
   private baseUrl = 'http://localhost:8080/api/v1/clients';
+  private clientUrl = 'http://localhost:8080/api/clients';
 
   constructor( private httpClient: HttpClient) {
 
@@ -19,7 +20,7 @@ export class ClientService {
     // Creating an Observable stream from the CLIENTS object
     // return of(CLIENTS);
 
-    return this.httpClient.get<Client []>(this.baseUrl)
+    return this.httpClient.get<Client []>(this.clientUrl)
       .pipe(
         map(response => response as Client [])
       );
